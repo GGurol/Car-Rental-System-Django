@@ -1,0 +1,42 @@
+services:
+  db:
+    # Use a stable MySQL 8.4 image
+    image: mysql:8.4
+    container_name: ocrs_db
+    environment:
+      # These variables create the database and user on first run
+      - MYSQL_DATABASE=ocrsdjango
+      - MYSQL_USER=user
+      - MYSQL_ROOT_PASSWORD=AsdsadAD^+%. # Change this to a secure password
+      - MYSQL_PASSWORD=123!%&456   # Change this to a secure password
+    volumes:
+      # This makes your database data persist
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    container_name: ocrs_app
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      # These variables are passed to your Django app
+      - DB_NAME=ocrsdjango
+      - DB_USER=user
+      - DB_PASS=123!%&456 # This must match MYSQL_PASSWORD above
+      - DB_HOST=db
+      - DB_PORT=3306
+    depends_on:
+      db:
+        # This waits for the database to be ready before starting Django
+        condition: service_healthy
+
+volumes:
+  db_data:
