@@ -1,6 +1,6 @@
 Car Rental System (Django) : Forked from https://github.com/RipudamanM/Car-Rental-System-Django/tree/master
 
-## Ggurol's notice:
+## GGurol's notice:
 
 should be fixed:
 1-add cars section to admin panel
