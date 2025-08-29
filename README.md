@@ -3,9 +3,11 @@ Car Rental System (Django) : Forked from https://github.com/RipudamanM/Car-Renta
 ## GGurol's notice:
 
 should be fixed:
-1-add cars section to admin panel
-2-prince is static, fix this
-    *    current calculation : cost_per_day = int(vehicle.capacity)*13 ( customer_portal/views.py )
+    -add cars section to admin panel
+    -prince is static, fix this
+        *current calculation : cost_per_day = int(vehicle.capacity)*13 ( customer_portal/views.py )
+    -car search : make like on search
+    -on rent, show the price on view.
 
 !!! if you having problem when "docker compose up --build" with "docker ps" show the correct outputs but "localhost:8000" has "no connection" error, try:
 
