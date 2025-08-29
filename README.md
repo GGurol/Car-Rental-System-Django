@@ -7,6 +7,12 @@ should be fixed:
 2-prince is static, fix this
     *    current calculation : cost_per_day = int(vehicle.capacity)*13 ( customer_portal/views.py )
 
+!!! if you having problem when "docker compose up --build" with "docker ps" show the correct outputs but "localhost:8000" has "no connection" error, try:
+
+	-docker compose stop
+	-docker compose up
+
+
 ==========================
 
 This is a Car Rental Management System built using Django. The system allows customers to book cars online, manage bookings, and view car availability. Admins can manage car listings, booking statuses, and customer information.
