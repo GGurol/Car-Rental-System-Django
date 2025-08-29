@@ -15,7 +15,9 @@
   
 
     <tr>
+      <th style="padding:20">City </th>
       <th style="padding:20">Vehicle </th>
+      <th style="padding:20">$/day </th>
       <th style="padding:20">Color  </th>
       <th style="padding:20">Capacity </th>
       <th style="padding:20">Description </th>
@@ -25,7 +27,9 @@
     </tr>
     {% for vehicle in request.session.vehicles_list %}
     <tr>
+      <td>{{vehicle.city}}</td>
       <td>{{vehicle.name}}</td>
+      <td>{{vehicle.price}}</td>
       <td>{{vehicle.color}}</td>
       <td>{{vehicle.capacity}}</td>
       <td>{{vehicle.description}}</td>
