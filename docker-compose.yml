@@ -1,3 +1,4 @@
+# docker-compose.yml
 services:
   db:
     # Use a stable MySQL 8.4 image
@@ -7,13 +8,13 @@ services:
       # These variables create the database and user on first run
       - MYSQL_DATABASE=ocrsdjango
       - MYSQL_USER=user
-      - MYSQL_ROOT_PASSWORD=AsdsadAD^+%. # Change this to a secure password
-      - MYSQL_PASSWORD=123!%&456   # Change this to a secure password
+      - MYSQL_ROOT_PASSWORD=Sfsf^+%.123 # Set a root password
+      - MYSQL_PASSWORD=22222222
     volumes:
       # This makes your database data persist
       - db_data:/var/lib/mysql
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "user", "-p22222222"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -30,7 +31,7 @@ services:
       # These variables are passed to your Django app
       - DB_NAME=ocrsdjango
       - DB_USER=user
-      - DB_PASS=123!%&456 # This must match MYSQL_PASSWORD above
+      - DB_PASS=22222222 # Use the password set above, can be empty
       - DB_HOST=db
       - DB_PORT=3306
     depends_on:
